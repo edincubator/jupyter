@@ -1,6 +1,5 @@
 import ldapauthenticator
 import dockerspawner
-import sudospawner
 # Configuration file for jupyterhub.
 
 #------------------------------------------------------------------------------
