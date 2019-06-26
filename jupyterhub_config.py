@@ -1,3 +1,4 @@
+import os
 import ldapauthenticator
 import dockerspawner
 # Configuration file for jupyterhub.
@@ -79,12 +80,13 @@ import dockerspawner
 #  - takes two arguments: (handler, data),
 #    where `handler` is the calling web.RequestHandler,
 #    and `data` is the POST form data from the login page.
-c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
-c.LDAPAuthenticator.server_address = 'manager.edincubator.eu'
-c.LDAPAuthenticator.bind_dn_template = ['uid={username},ou=People,dc=edincubator,dc=eu']
-c.LDAPAuthenticator.allowed_groups = []
-c.LDAPAuthenticator.use_ssl = True
-c.LDAPAuthenticator.server_port = 636
+c.JupyterHub.authenticator_class = 'jupyterhub.auth.DummyAuthenticator'
+# c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
+# c.LDAPAuthenticator.server_address = 'manager.edincubator.eu'
+# c.LDAPAuthenticator.bind_dn_template = ['uid={username},ou=People,dc=edincubator,dc=eu']
+# c.LDAPAuthenticator.allowed_groups = []
+# c.LDAPAuthenticator.use_ssl = True
+# c.LDAPAuthenticator.server_port = 636
 
 
 ## The base URL of the entire application.
@@ -225,7 +227,7 @@ c.LDAPAuthenticator.server_port = 636
 #  requirements.
 #  
 #  .. versionadded:: 0.8
-#c.JupyterHub.hub_connect_ip = ''
+c.JupyterHub.hub_connect_ip = 'jupyterhub'
 
 ## DEPRECATED
 #  
@@ -370,7 +372,13 @@ c.LDAPAuthenticator.server_port = 636
 #  
 #  Should be a subclass of Spawner.
 c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
-
+network_name = os.environ['DOCKER_NETWORK_NAME']
+c.DockerSpawner.use_internal_ip = True
+c.DockerSpawner.network_name = network_name
+c.DockerSpawner.extra_host_config = { 
+    'network_mode': network_name
+}
+c.DockerSpawner.image = 'edincubator/notebook'
 
 ## Path to SSL certificate file for the public facing interface of the proxy
 #  
@@ -516,7 +524,7 @@ c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 #    navigate the whole filesystem from their notebook server, but still start in their home directory.
 #  - Start with `/notebooks` instead of `/tree` if `default_url` points to a notebook instead of a directory.
 #  - You can set this to `/lab` to have JupyterLab start by default, rather than Jupyter Notebook.
-#c.Spawner.default_url = ''
+c.Spawner.default_url = '/lab'
 
 ## Disable per-user configuration of single-user servers.
 #  
@@ -767,7 +775,7 @@ c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 #  Admin access should be treated the same way root access is.
 #  
 #  Defaults to an empty set, in which case no user has admin access.
-#c.Authenticator.admin_users = set()
+c.Authenticator.admin_users = set('admin')
 
 ## Automatically begin the login process
 #  
