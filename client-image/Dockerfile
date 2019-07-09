@@ -99,15 +99,3 @@ ENV JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 ENV SPARK_HOME="/opt/spark"
 ENV HADOOP_VERSION="3.1.0"
 ENV APACHE_SPARK_VERSION="2.3.1"
-
-# Iptables
-
-USER root
-RUN apt-get install -y iptables
-RUN iptables -t nat -A OUTPUT -d 192.168.2.102 -j DNAT --to-destination 172.24.20.18
-RUN iptables -t nat -A OUTPUT -d 192.168.2.109 -j DNAT --to-destination 172.24.20.5
-RUN iptables -t nat -A OUTPUT -d 192.168.2.101 -j DNAT --to-destination 172.24.20.9
-RUN iptables -t nat -A OUTPUT -d 192.168.2.106 -j DNAT --to-destination 172.24.20.16
-
-USER $NB_USER
-WORKDIR /home/$NB_USER/work

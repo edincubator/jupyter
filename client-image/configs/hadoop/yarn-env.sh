@@ -5,7 +5,7 @@ export HADOOP_SECURE_LOG_DIR=/var/log/hadoop-yarn/yarn
 export HADOOP_PID_DIR=/var/run/hadoop-yarn/yarn
 export HADOOP_SECURE_PID_DIR=/var/run/hadoop-yarn/yarn
 export HADOOP_LIBEXEC_DIR=/usr/hdp/3.0.0.0-1634/hadoop/libexec
-export JAVA_HOME=/usr/jdk64/jdk1.8.0_112
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 export JAVA_LIBRARY_PATH="${JAVA_LIBRARY_PATH}:/var/lib/ambari-server/data/tmp/hadoop_java_io_tmpdir"
 
 # We need to add the EWMA and RFA appender for the yarn daemons only;
