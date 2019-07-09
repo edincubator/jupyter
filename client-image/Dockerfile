@@ -11,30 +11,30 @@ USER root
 RUN apt-get update && \
     apt-get install -y vim nano
 
-# RSpark config
-ENV R_LIBS_USER $SPARK_HOME/R/lib
-RUN fix-permissions $R_LIBS_USER
+# # RSpark config
+# ENV R_LIBS_USER $SPARK_HOME/R/lib
+# RUN fix-permissions $R_LIBS_USER
 
-# R pre-requisites
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    fonts-dejavu \
-    gfortran \
-    gcc && \
-    rm -rf /var/lib/apt/lists/*
+# # R pre-requisites
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends \
+#     fonts-dejavu \
+#     gfortran \
+#     gcc && \
+#     rm -rf /var/lib/apt/lists/*
 
-USER $NB_UID
+# USER $NB_UID
 
-# R packages
-RUN conda install --quiet --yes \
-    'r-base=3.5.1' \
-    'r-irkernel=0.8*' \
-    'r-ggplot2=3.1*' \
-    'r-sparklyr=0.9*' \
-    'r-rcurl=1.95*' && \
-    conda clean --all -f -y && \
-    fix-permissions $CONDA_DIR && \
-    fix-permissions /home/$NB_USER
+# # R packages
+# RUN conda install --quiet --yes \
+#     'r-base=3.5.1' \
+#     'r-irkernel=0.8*' \
+#     'r-ggplot2=3.1*' \
+#     'r-sparklyr=0.9*' \
+#     'r-rcurl=1.95*' && \
+#     conda clean --all -f -y && \
+#     fix-permissions $CONDA_DIR && \
+#     fix-permissions /home/$NB_USER
 
 # Spark Magic
 RUN pip install --no-cache-dir sparkmagic && \
@@ -47,13 +47,9 @@ RUN jupyter-kernelspec install sparkmagic/kernels/sparkkernel && \
     jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel && \
     jupyter-kernelspec install sparkmagic/kernels/sparkrkernel
 
-RUN rm -rf /home/$NB_USER/.local && \
-    fix-permissions $CONDA_DIR && \
-    fix-permissions /home/$NB_USER
-
 WORKDIR /home/$NB_USER/work
 RUN mkdir /home/$NB_USER/.sparkmagic
-ADD config.json /home/$NB_USER/.sparkmagic/config.json
+ADD configs/config.json /home/$NB_USER/.sparkmagic/config.json
 RUN chown -R jovyan:users /home/$NB_USER/.sparkmagic
 
 USER $NB_USER
@@ -62,6 +58,56 @@ RUN  jupyter serverextension enable --py sparkmagic
 # Add krb5.conf
 USER root
 ADD krb5.conf /etc/krb5.conf
+
+RUN rm -rf /home/$NB_USER/.local && \
+    fix-permissions $CONDA_DIR && \
+    fix-permissions /home/$NB_USER
+
+RUN wget -O /tmp/spark-2.3.1-bin-without-hadoop.tgz https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-without-hadoop.tgz
+RUN tar -xf /tmp/spark-2.3.1-bin-without-hadoop.tgz
+RUN mv spark-2.3.1-bin-without-hadoop /opt/
+RUN ln -s /opt/spark-2.3.1-bin-without-hadoop /opt/spark
+
+RUN wget -O /tmp/hadoop-3.1.0.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-3.1.0/hadoop-3.1.0.tar.gz
+RUN tar -xf /tmp/hadoop-3.1.0.tar.gz
+RUN mv hadoop-3.1.0 /opt/
+RUN ln -s /opt/hadoop-3.1.0 /opt/hadoop
+
+ADD configs/spark/spark-defaults.conf /opt/spark/conf/
+ADD configs/spark/spark-env.sh /opt/spark/conf/
+ADD configs/spark/spark-log4j.properties /opt/spark/conf/
+ADD configs/spark/spark-metrics.properties /opt/spark/conf/
+
+ADD configs/hadoop/core-site.xml /opt/hadoop/etc/hadoop/
+ADD configs/hadoop/hadoop-env.sh /opt/hadoop/etc/hadoop/
+ADD configs/hadoop/hdfs-site.xml /opt/hadoop/etc/hadoop/
+ADD configs/hadoop/log4j.properties /opt/hadoop/etc/hadoop/
+ADD configs/hadoop/capacity-scheduler.xml /opt/hadoop/etc/hadoop/
+ADD configs/hadoop/container-executor.cfg /opt/hadoop/etc/hadoop/
+ADD configs/hadoop/resource-types.xml /opt/hadoop/etc/hadoop/
+ADD configs/hadoop/yarn-env.sh /opt/hadoop/etc/hadoop/
+ADD configs/hadoop/yarn-site.xml /opt/hadoop/etc/hadoop/
+
+
+USER $NB_USER
+WORKDIR /home/$NB_USER/work
+
+ENV PATH="/opt/spark/bin:/opt/hadoop/bin:${PATH}"
+ENV HADOOP_HOME="/opt/hadoop"
+ENV HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
+ENV JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
+ENV SPARK_HOME="/opt/spark"
+ENV HADOOP_VERSION="3.1.0"
+ENV APACHE_SPARK_VERSION="2.3.1"
+
+# Iptables
+
+USER root
+RUN apt-get install -y iptables
+RUN iptables -t nat -A OUTPUT -d 192.168.2.102 -j DNAT --to-destination 172.24.20.18
+RUN iptables -t nat -A OUTPUT -d 192.168.2.109 -j DNAT --to-destination 172.24.20.5
+RUN iptables -t nat -A OUTPUT -d 192.168.2.101 -j DNAT --to-destination 172.24.20.9
+RUN iptables -t nat -A OUTPUT -d 192.168.2.106 -j DNAT --to-destination 172.24.20.16
 
 USER $NB_USER
 WORKDIR /home/$NB_USER/work

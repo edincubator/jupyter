@@ -1,0 +1,116 @@
+  <configuration  xmlns:xi="http://www.w3.org/2001/XInclude">
+    
+    <property>
+      <name>capacity-scheduler</name>
+      <value>yarn.scheduler.capacity.root.default.acl_administer_queue=yarn
+yarn.scheduler.capacity.node-locality-delay=40
+yarn.scheduler.capacity.root.accessible-node-labels=*
+yarn.scheduler.capacity.root.capacity=100
+yarn.scheduler.capacity.maximum-am-resource-percent=0.8
+yarn.scheduler.capacity.maximum-applications=10000
+yarn.scheduler.capacity.root.default.user-limit-factor=1
+yarn.scheduler.capacity.root.default.maximum-capacity=100
+yarn.scheduler.capacity.root.acl_submit_applications=yarn,ambari-qa
+yarn.scheduler.capacity.root.default.acl_submit_applications=yarn,yarn-ats
+yarn.scheduler.capacity.root.default.state=RUNNING
+yarn.scheduler.capacity.root.default.capacity=100
+yarn.scheduler.capacity.root.acl_administer_queue=yarn,spark,hive
+yarn.scheduler.capacity.root.priority=0
+yarn.scheduler.capacity.root.queues=default
+yarn.scheduler.capacity.root.default.priority=0
+yarn.scheduler.capacity.root.default.acl_administer_jobs=yarn
+yarn.scheduler.capacity.queue-mappings-override.enable=false
+yarn.scheduler.capacity.resource-calculator=org.apache.hadoop.yarn.util.resource.DefaultResourceCalculator</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.maximum-am-resource-percent</name>
+      <value>0.8</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.maximum-applications</name>
+      <value>10000</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.node-locality-delay</name>
+      <value>40</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.queue-mappings-override.enable</name>
+      <value>false</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.resource-calculator</name>
+      <value>org.apache.hadoop.yarn.util.resource.DominantResourceCalculator</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.accessible-node-labels</name>
+      <value>*</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.acl_administer_queue</name>
+      <value>yarn,spark</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.acl_submit_applications</name>
+      <value>yarn,ambari-qa</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.capacity</name>
+      <value>100</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.default.acl_administer_queue</name>
+      <value>yarn,knox </value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.default.acl_submit_applications</name>
+      <value>yarn,yarn-ats,memaldi,spark,zeppelin </value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.default.capacity</name>
+      <value>100</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.default.maximum-capacity</name>
+      <value>100</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.default.priority</name>
+      <value>0</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.default.state</name>
+      <value>RUNNING</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.default.user-limit-factor</name>
+      <value>1</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.priority</name>
+      <value>0</value>
+    </property>
+    
+    <property>
+      <name>yarn.scheduler.capacity.root.queues</name>
+      <value>default</value>
+    </property>
+    
+  </configuration>

@@ -80,13 +80,13 @@ import dockerspawner
 #  - takes two arguments: (handler, data),
 #    where `handler` is the calling web.RequestHandler,
 #    and `data` is the POST form data from the login page.
-c.JupyterHub.authenticator_class = 'jupyterhub.auth.DummyAuthenticator'
-# c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
-# c.LDAPAuthenticator.server_address = 'manager.edincubator.eu'
-# c.LDAPAuthenticator.bind_dn_template = ['uid={username},ou=People,dc=edincubator,dc=eu']
-# c.LDAPAuthenticator.allowed_groups = []
-# c.LDAPAuthenticator.use_ssl = True
-# c.LDAPAuthenticator.server_port = 636
+# c.JupyterHub.authenticator_class = 'jupyterhub.auth.DummyAuthenticator'
+c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
+c.LDAPAuthenticator.server_address = 'ldap'
+c.LDAPAuthenticator.bind_dn_template = ['cn={username},dc=edincubator,dc=eu']
+c.LDAPAuthenticator.allowed_groups = []
+c.LDAPAuthenticator.use_ssl = False
+c.LDAPAuthenticator.server_port = 389
 
 
 ## The base URL of the entire application.
@@ -372,11 +372,16 @@ c.JupyterHub.hub_connect_ip = 'jupyterhub'
 #  
 #  Should be a subclass of Spawner.
 c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
-network_name = os.environ['DOCKER_NETWORK_NAME']
+network_name = os.environ.get('DOCKER_NETWORK_NAME', 'bridge')
 c.DockerSpawner.use_internal_ip = True
 c.DockerSpawner.network_name = network_name
 c.DockerSpawner.extra_host_config = { 
-    'network_mode': network_name
+    'network_mode': network_name,
+    'extra_hosts': [
+        "edi-master.novalocal:192.168.2.106", 
+        "edi-worker1.novalocal:192.168.2.102",
+        "edi-worker2.novalocal:192.168.2.109",
+        "edi-worker3.novalocal:192.168.2.101"]
 }
 c.DockerSpawner.image = 'edincubator/notebook'
 
