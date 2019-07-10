@@ -9,7 +9,7 @@ USER root
 
 # Install vim & nano
 RUN apt-get update && \
-    apt-get install -y vim nano mvn
+    apt-get install -y vim nano maven
 
 # RSpark config
 ENV R_LIBS_USER $SPARK_HOME/R/lib
