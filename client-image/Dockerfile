@@ -9,32 +9,32 @@ USER root
 
 # Install vim & nano
 RUN apt-get update && \
-    apt-get install -y vim nano
+    apt-get install -y vim nano mvn
 
-# # RSpark config
-# ENV R_LIBS_USER $SPARK_HOME/R/lib
-# RUN fix-permissions $R_LIBS_USER
+# RSpark config
+ENV R_LIBS_USER $SPARK_HOME/R/lib
+RUN fix-permissions $R_LIBS_USER
 
-# # R pre-requisites
-# RUN apt-get update && \
-#     apt-get install -y --no-install-recommends \
-#     fonts-dejavu \
-#     gfortran \
-#     gcc && \
-#     rm -rf /var/lib/apt/lists/*
+# R pre-requisites
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    fonts-dejavu \
+    gfortran \
+    gcc && \
+    rm -rf /var/lib/apt/lists/*
 
-# USER $NB_UID
+USER $NB_UID
 
-# # R packages
-# RUN conda install --quiet --yes \
-#     'r-base=3.5.1' \
-#     'r-irkernel=0.8*' \
-#     'r-ggplot2=3.1*' \
-#     'r-sparklyr=0.9*' \
-#     'r-rcurl=1.95*' && \
-#     conda clean --all -f -y && \
-#     fix-permissions $CONDA_DIR && \
-#     fix-permissions /home/$NB_USER
+# R packages
+RUN conda install --quiet --yes \
+    'r-base=3.5.1' \
+    'r-irkernel=0.8*' \
+    'r-ggplot2=3.1*' \
+    'r-sparklyr=0.9*' \
+    'r-rcurl=1.95*' && \
+    conda clean --all -f -y && \
+    fix-permissions $CONDA_DIR && \
+    fix-permissions /home/$NB_USER
 
 # Spark Magic
 RUN pip install --no-cache-dir sparkmagic && \
