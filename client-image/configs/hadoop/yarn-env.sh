@@ -1,5 +1,5 @@
 
-export HADOOP_YARN_HOME=/usr/hdp/3.0.0.0-1634/hadoop-yarn
+export HADOOP_YARN_HOME=/opt/hadoop
 export HADOOP_LOG_DIR=/var/log/hadoop-yarn/yarn
 export HADOOP_SECURE_LOG_DIR=/var/log/hadoop-yarn/yarn
 export HADOOP_PID_DIR=/var/run/hadoop-yarn/yarn

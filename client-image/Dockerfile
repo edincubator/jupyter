@@ -9,7 +9,7 @@ USER root
 
 # Install vim & nano
 RUN apt-get update && \
-    apt-get install -y vim nano maven
+    apt-get install -y vim nano maven openjdk-8-jdk
 
 # RSpark config
 ENV R_LIBS_USER $SPARK_HOME/R/lib
@@ -88,6 +88,8 @@ ADD configs/hadoop/resource-types.xml /opt/hadoop/etc/hadoop/
 ADD configs/hadoop/yarn-env.sh /opt/hadoop/etc/hadoop/
 ADD configs/hadoop/yarn-site.xml /opt/hadoop/etc/hadoop/
 
+ADD configs/hadoop/mapred-env.sh /opt/hadoop/etc/hadoop/
+ADD configs/hadoop/mapred-site.xml /opt/hadoop/etc/hadoop/
 
 USER $NB_USER
 WORKDIR /home/$NB_USER/work
