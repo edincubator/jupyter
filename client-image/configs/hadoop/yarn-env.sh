@@ -6,7 +6,7 @@ export HADOOP_PID_DIR=/var/run/hadoop-yarn/yarn
 export HADOOP_SECURE_PID_DIR=/var/run/hadoop-yarn/yarn
 export HADOOP_LIBEXEC_DIR=/usr/hdp/3.0.0.0-1634/hadoop/libexec
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
-export JAVA_LIBRARY_PATH="${JAVA_LIBRARY_PATH}:/var/lib/ambari-server/data/tmp/hadoop_java_io_tmpdir"
+export JAVA_LIBRARY_PATH="${JAVA_LIBRARY_PATH}:/tmp/hadoop_java_io_tmpdir"
 
 # We need to add the EWMA and RFA appender for the yarn daemons only;
 # however, HADOOP_ROOT_LOGGER is shared by the yarn client and the
@@ -124,7 +124,7 @@ unset IFS
 # between all YARN components.
 HADOOP_OPTS="$HADOOP_OPTS -Dyarn.id.str=$YARN_IDENT_STRING"
 HADOOP_OPTS="$HADOOP_OPTS -Dyarn.policy.file=$YARN_POLICYFILE"
-HADOOP_OPTS="$HADOOP_OPTS -Djava.io.tmpdir=/var/lib/ambari-server/data/tmp/hadoop_java_io_tmpdir"
+HADOOP_OPTS="$HADOOP_OPTS -Djava.io.tmpdir=/tmp/hadoop_java_io_tmpdir"
 
 
 HADOOP_OPTS="$HADOOP_OPTS -Djavax.security.auth.useSubjectCredsOnly=false"
