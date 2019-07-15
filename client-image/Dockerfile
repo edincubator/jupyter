@@ -101,5 +101,6 @@ ENV JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 ENV SPARK_HOME="/opt/spark"
 ENV HADOOP_VERSION="3.1.0"
 ENV APACHE_SPARK_VERSION="2.3.1"
+ENV HDP_VERSION="3.0.0.0-1634"
 
 RUN git clone https://github.com/edincubator/stack-examples ~/work/examples
