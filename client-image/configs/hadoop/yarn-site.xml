@@ -996,5 +996,10 @@
       <name>yarn.webapp.ui2.enable</name>
       <value>true</value>
     </property>
+
+    <property>
+      <name>hdp.version</name>
+      <value>3.0.0.0-1634</value>
+    </property>
     
   </configuration>
