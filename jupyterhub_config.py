@@ -379,9 +379,9 @@ c.DockerSpawner.extra_host_config = {
     'network_mode': network_name,
     'extra_hosts': [
         "edi-master.novalocal:192.168.2.106", 
-        "edi-worker1.novalocal:192.168.2.102",
-        "edi-worker2.novalocal:192.168.2.109",
-        "edi-worker3.novalocal:192.168.2.101"]
+        "edi-worker-1.novalocal:192.168.2.102",
+        "edi-worker-2.novalocal:192.168.2.109",
+        "edi-worker-3.novalocal:192.168.2.101"]
 }
 c.DockerSpawner.image = 'edincubator/notebook'
 
