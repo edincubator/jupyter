@@ -9,7 +9,7 @@ USER root
 
 # Install vim & nano
 RUN apt-get update && \
-    apt-get install -y vim nano maven openjdk-8-jdk
+    apt-get install -y vim nano maven openjdk-8-jdk python3-dev libsasl2-dev libsasl2-2 libsasl2-modules-gssapi-mit
 
 # RSpark config
 ENV R_LIBS_USER $SPARK_HOME/R/lib
@@ -91,6 +91,23 @@ ADD configs/hadoop/yarn-site.xml /opt/hadoop/etc/hadoop/
 ADD configs/hadoop/mapred-env.sh /opt/hadoop/etc/hadoop/
 ADD configs/hadoop/mapred-site.xml /opt/hadoop/etc/hadoop/
 
+# HiveQL
+
+RUN pip install --upgrade hiveqlKernel
+RUN jupyter hiveql install --user
+
+# HBase
+
+RUN wget -O /tmp/hbase-2.0.0-bin.tar.gz http://archive.apache.org/dist/hbase/2.0.0/hbase-2.0.0-bin.tar.gz
+RUN tar -xf /tmp/hbase-2.0.0-bin.tar.gz
+RUN mv hbase-2.0.0 /opt/
+RUN ln -s /opt/hbase-2.0.0 /opt/hbase
+
+ADD configs/hbase/hbase-env.sh /opt/hbase/conf/
+ADD configs/hbase/hbase-site.sh /opt/hbase/conf/
+ADD configs/hbase/log4j.properties /opt/hbase/conf/
+
+# User Config
 USER $NB_USER
 WORKDIR /home/$NB_USER/work
 
