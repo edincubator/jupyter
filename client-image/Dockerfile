@@ -104,7 +104,7 @@ RUN mv hbase-2.0.0 /opt/
 RUN ln -s /opt/hbase-2.0.0 /opt/hbase
 
 ADD configs/hbase/hbase-env.sh /opt/hbase/conf/
-ADD configs/hbase/hbase-site.sh /opt/hbase/conf/
+ADD configs/hbase/hbase-site.xml /opt/hbase/conf/
 ADD configs/hbase/log4j.properties /opt/hbase/conf/
 
 # User Config
