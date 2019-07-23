@@ -107,6 +107,11 @@ ADD configs/hbase/hbase-env.sh /opt/hbase/conf/
 ADD configs/hbase/hbase-site.xml /opt/hbase/conf/
 ADD configs/hbase/log4j.properties /opt/hbase/conf/
 
+# Fix user permissions
+RUN rm -rf /home/$NB_USER/.local && \
+    fix-permissions $CONDA_DIR && \
+    fix-permissions /home/$NB_USER
+
 # User Config
 USER $NB_USER
 WORKDIR /home/$NB_USER/work
