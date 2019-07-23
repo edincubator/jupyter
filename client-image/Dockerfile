@@ -44,7 +44,7 @@ USER root
 WORKDIR /opt/conda/lib/python3.7/site-packages
 RUN jupyter-kernelspec install sparkmagic/kernels/sparkkernel && \
     jupyter-kernelspec install sparkmagic/kernels/pysparkkernel && \
-    jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel && \
+#    jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel && \
     jupyter-kernelspec install sparkmagic/kernels/sparkrkernel
 
 WORKDIR /home/$NB_USER/work
