@@ -108,15 +108,14 @@ ADD configs/hbase/hbase-site.xml /opt/hbase/conf/
 ADD configs/hbase/log4j.properties /opt/hbase/conf/
 
 # Fix user permissions
-RUN rm -rf /home/$NB_USER/.local && \
-    fix-permissions $CONDA_DIR && \
+RUN fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
 # User Config
 USER $NB_USER
 WORKDIR /home/$NB_USER/work
 
-ENV PATH="/opt/spark/bin:/opt/hadoop/bin:${PATH}"
+ENV PATH="/opt/hbase/bin/:/opt/spark/bin:/opt/hadoop/bin:${PATH}"
 ENV HADOOP_HOME="/opt/hadoop"
 ENV HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
 ENV JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
