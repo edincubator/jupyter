@@ -108,6 +108,9 @@ ADD configs/hbase/hbase-site.xml /opt/hbase/conf/
 ADD configs/hbase/log4j.properties /opt/hbase/conf/
 ADD configs/hbase/regionservers /opt/hbase/conf/
 
+ADD configs/hbase/hbase-site.xml /opt/hadoop/etc/hadoop/
+RUN cp -r /opt/hbase/lib/* /opt/hadoop/lib
+
 # Fix user permissions
 RUN fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
