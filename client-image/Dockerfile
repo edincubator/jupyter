@@ -123,5 +123,7 @@ ENV SPARK_HOME="/opt/spark"
 ENV HADOOP_VERSION="3.1.0"
 ENV APACHE_SPARK_VERSION="2.3.1"
 ENV HDP_VERSION="3.0.0.0-1634"
+ENV HBASE_HOME="/opt/hbase"
+ENV HADOOP_CLASSPATH="${HBASE_HOME}/lib/*:${HBASE_HOME}/conf/*"
 
 RUN git clone https://github.com/edincubator/stack-examples ~/work/examples
