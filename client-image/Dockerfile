@@ -106,6 +106,7 @@ RUN ln -s /opt/hbase-2.0.0 /opt/hbase
 ADD configs/hbase/hbase-env.sh /opt/hbase/conf/
 ADD configs/hbase/hbase-site.xml /opt/hbase/conf/
 ADD configs/hbase/log4j.properties /opt/hbase/conf/
+ADD configs/hbase/regionservers /opt/hbase/conf/
 
 # Fix user permissions
 RUN fix-permissions $CONDA_DIR && \
