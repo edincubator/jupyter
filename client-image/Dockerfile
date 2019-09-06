@@ -120,6 +120,13 @@ RUN ln -s /opt/apache-phoenix-5.0.0-HBase-2.0-bin /opt/phoenix
 RUN ln -s /opt/phoenix/bin/sqlline.py /usr/bin/phoenix-sqlline
 RUN sed -i '1{s/$/2.7/}' /opt/phoenix/bin/sqlline.py
 
+# Kafka
+
+RUN wget -O /tmp/kafka_2.11-1.0.1.tgz https://archive.apache.org/dist/kafka/1.0.1/kafka_2.11-1.0.1.tgz
+RUN tar -xf /tmp/kafka_2.11-1.0.1.tgz
+RUN mv kafka_2.11-1.0.1 /opt/
+RUN ln -s /opt/kafka_2.11-1.0.1 /opt/kafka
+
 
 # Fix user permissions
 RUN fix-permissions $CONDA_DIR && \
@@ -129,7 +136,7 @@ RUN fix-permissions $CONDA_DIR && \
 USER $NB_USER
 WORKDIR /home/$NB_USER/work
 
-ENV PATH="/opt/hbase/bin/:/opt/spark/bin:/opt/hadoop/bin:${PATH}"
+ENV PATH="/opt/hbase/bin/:/opt/spark/bin:/opt/hadoop/bin:/opt/kafka/bin:${PATH}"
 ENV HADOOP_HOME="/opt/hadoop"
 ENV HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
 ENV JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
