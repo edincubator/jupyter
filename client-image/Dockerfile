@@ -113,11 +113,12 @@ RUN cp -r /opt/hbase/lib/* /opt/hadoop/lib
 
 # Phoenix
 
-RUN wget -O /tmp/pache-phoenix-5.0.0-HBase-2.0-bin.tar.gz http://apache.rediris.es/phoenix/apache-phoenix-5.0.0-HBase-2.0/bin/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz
+RUN wget -O /tmp/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz http://apache.rediris.es/phoenix/apache-phoenix-5.0.0-HBase-2.0/bin/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz
 RUN tar -xf /tmp/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz
 RUN mv apache-phoenix-5.0.0-HBase-2.0-bin /opt/
 RUN ln -s /opt/apache-phoenix-5.0.0-HBase-2.0-bin /opt/phoenix
 RUN ln -s /opt/phoenix/bin/sqlline.py /usr/bin/phoenix-sqlline
+RUN sed -i '1 i\2.7' /usr/bin/phoenix-sqlline
 
 
 # Fix user permissions
