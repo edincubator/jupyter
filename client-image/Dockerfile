@@ -113,7 +113,7 @@ RUN cp -r /opt/hbase/lib/* /opt/hadoop/lib
 
 # Phoenix
 
-ADD http://apache.rediris.es/phoenix/apache-phoenix-5.0.0-HBase-2.0/bin/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz /tmp
+RUN wget -O /tmp/pache-phoenix-5.0.0-HBase-2.0-bin.tar.gz http://apache.rediris.es/phoenix/apache-phoenix-5.0.0-HBase-2.0/bin/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz
 RUN tar -xf /tmp/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz
 RUN mv apache-phoenix-5.0.0-HBase-2.0-bin /opt/
 RUN ln -s /opt/apache-phoenix-5.0.0-HBase-2.0-bin /opt/phoenix
@@ -138,6 +138,7 @@ ENV APACHE_SPARK_VERSION="2.3.1"
 ENV HDP_VERSION="3.0.0.0-1634"
 ENV HBASE_HOME="/opt/hbase"
 ENV HADOOP_CLASSPATH="${HBASE_HOME}/lib/*:${HBASE_HOME}/conf/*"
+ENV HBASE_CONF_DIR="${HBASE_HOME}/conf"
 
 RUN git clone https://github.com/edincubator/stack-examples ~/work/examples
 
