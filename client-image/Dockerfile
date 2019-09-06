@@ -118,7 +118,7 @@ RUN tar -xf /tmp/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz
 RUN mv apache-phoenix-5.0.0-HBase-2.0-bin /opt/
 RUN ln -s /opt/apache-phoenix-5.0.0-HBase-2.0-bin /opt/phoenix
 RUN ln -s /opt/phoenix/bin/sqlline.py /usr/bin/phoenix-sqlline
-RUN sed -i '1{s/$/2.7/}' /usr/bin/phoenix-sqlline
+RUN sed -i '1{s/$/2.7/}' /opt/phoenix/bin/sqlline.py
 
 
 # Fix user permissions
