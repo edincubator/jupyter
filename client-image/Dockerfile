@@ -117,7 +117,7 @@ ADD http://apache.rediris.es/phoenix/apache-phoenix-5.0.0-HBase-2.0/bin/apache-p
 RUN tar -xf /tmp/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz
 RUN mv apache-phoenix-5.0.0-HBase-2.0-bin /opt/
 RUN ln -s /opt/apache-phoenix-5.0.0-HBase-2.0-bin /opt/phoenix
-RUN ln -s /opt/phoenix/bin/queryserver.py /usr/bin/phoenix-queryserver
+RUN ln -s /opt/phoenix/bin/sqlline.py /usr/bin/phoenix-sqlline
 
 
 # Fix user permissions
