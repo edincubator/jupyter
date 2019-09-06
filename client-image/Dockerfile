@@ -111,6 +111,15 @@ ADD configs/hbase/regionservers /opt/hbase/conf/
 ADD configs/hbase/hbase-site.xml /opt/hadoop/etc/hadoop/
 RUN cp -r /opt/hbase/lib/* /opt/hadoop/lib
 
+# Phoenix
+
+ADD http://apache.rediris.es/phoenix/apache-phoenix-5.0.0-HBase-2.0/bin/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz /tmp
+RUN tar -xf /tmp/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz
+RUN mv apache-phoenix-5.0.0-HBase-2.0-bin /opt/
+RUN ln -s /opt/apache-phoenix-5.0.0-HBase-2.0-bin /opt/phoenix
+RUN ln -s /opt/phoenix/bin/queryserver.py /usr/bin/phoenix-queryserver
+
+
 # Fix user permissions
 RUN fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
@@ -131,3 +140,9 @@ ENV HBASE_HOME="/opt/hbase"
 ENV HADOOP_CLASSPATH="${HBASE_HOME}/lib/*:${HBASE_HOME}/conf/*"
 
 RUN git clone https://github.com/edincubator/stack-examples ~/work/examples
+
+USER root
+
+RUN rm -rf /tmp/*
+
+USER $NB_USER
