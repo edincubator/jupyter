@@ -136,6 +136,16 @@ RUN tar -xf /tmp/pig-0.16.0.tar.gz
 RUN mv pig-0.16.0 /opt/
 RUN ln -s /opt/pig-0.16.0 /opt/pig
 
+# Oozie
+
+RUN wget -O /tmp/oozie-4.3.1.tar.gz http://apache.rediris.es/oozie/4.3.1/oozie-4.3.1.tar.gz
+WORKDIR /tmp
+RUN tar -xf /tmp/oozie-4.3.1.tar.gz
+RUN ./oozie-4.3.1/bin/mkdistro.sh -DskipTests
+RUN tar -xf /tmp/oozie-4.3.1/client/target/oozie-client-4.3.1-client.tar.gz
+RUN mv /tmp/oozie-4.3.1/client/target/oozie-client-4.3.1-client /opt/
+RUN ln -s /opt/oozie-client-4.3.1-client /opt/oozie
+
 # Fix user permissions
 RUN fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
@@ -144,7 +154,7 @@ RUN fix-permissions $CONDA_DIR && \
 USER $NB_USER
 WORKDIR /home/$NB_USER/work
 
-ENV PATH="/opt/hbase/bin/:/opt/spark/bin:/opt/hadoop/bin:/opt/kafka/bin:/opt/pig/bin:${PATH}"
+ENV PATH="/opt/hbase/bin/:/opt/spark/bin:/opt/hadoop/bin:/opt/kafka/bin:/opt/pig/bin:/opt/oozie/bin:${PATH}"
 ENV HADOOP_HOME="/opt/hadoop"
 ENV HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
 ENV JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
