@@ -144,7 +144,7 @@ RUN fix-permissions $CONDA_DIR && \
 USER $NB_USER
 WORKDIR /home/$NB_USER/work
 
-ENV PATH="/opt/hbase/bin/:/opt/spark/bin:/opt/hadoop/bin:/opt/kafka/bin:${PATH}"
+ENV PATH="/opt/hbase/bin/:/opt/spark/bin:/opt/hadoop/bin:/opt/kafka/bin:/opt/pig/bin:${PATH}"
 ENV HADOOP_HOME="/opt/hadoop"
 ENV HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
 ENV JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
