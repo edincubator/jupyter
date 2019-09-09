@@ -129,6 +129,12 @@ RUN ln -s /opt/kafka_2.11-1.0.1 /opt/kafka
 ADD configs/kafka/kafka_client_jaas.conf /opt/kafka/config/kafka_client_jaas.conf
 ADD configs/kafka/kafka_jaas.conf /opt/kafka/config/kafka_jaas.conf
 
+# Pig
+
+RUN wget -O /tmp/pig-0.16.0.tar.gz http://apache.rediris.es/pig/pig-0.16.0/pig-0.16.0.tar.gz
+RUN tar -xf /tmp/pig-0.16.0.tar.gz
+RUN mv pig-0.16.0 /opt/
+RUN ln -s /opt/pig-0.16.0 /opt/pig
 
 # Fix user permissions
 RUN fix-permissions $CONDA_DIR && \
