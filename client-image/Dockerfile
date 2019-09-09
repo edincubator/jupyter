@@ -126,6 +126,8 @@ RUN wget -O /tmp/kafka_2.11-1.0.1.tgz https://archive.apache.org/dist/kafka/1.0.
 RUN tar -xf /tmp/kafka_2.11-1.0.1.tgz
 RUN mv kafka_2.11-1.0.1 /opt/
 RUN ln -s /opt/kafka_2.11-1.0.1 /opt/kafka
+ADD configs/kafka/kafka_client_jaas.conf /opt/kafka/config/kafka_client_jaas.conf
+ADD configs/kafka/kafka_jaas.conf /opt/kafka/config/kafka_jaas.conf
 
 
 # Fix user permissions
@@ -147,6 +149,7 @@ ENV HDP_VERSION="3.0.0.0-1634"
 ENV HBASE_HOME="/opt/hbase"
 ENV HADOOP_CLASSPATH="${HBASE_HOME}/lib/*:${HBASE_HOME}/conf/*"
 ENV HBASE_CONF_DIR="${HBASE_HOME}/conf"
+ENV KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_client_jaas.conf"
 
 RUN git clone https://github.com/edincubator/stack-examples ~/work/examples
 
