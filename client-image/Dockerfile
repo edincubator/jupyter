@@ -172,11 +172,13 @@ ENV HADOOP_VERSION="3.1.0"
 ENV APACHE_SPARK_VERSION="2.3.1"
 ENV HDP_VERSION="3.0.0.0-1634"
 ENV HBASE_HOME="/opt/hbase"
-ENV HADOOP_CLASSPATH="${HBASE_HOME}/lib/*:${HBASE_HOME}/conf/*"
 ENV HBASE_CONF_DIR="${HBASE_HOME}/conf"
 ENV KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_client_jaas.conf"
-ENV TEZ_HOME="/opt/tez"
+ENV TEZ_JARS="/opt/tez"
+ENV TEZ_CONF_DIR="/opt/tez/conf"
 ENV PIG_CLASSPATH="${HADOOP_HOME}/conf:${TEZ_HOME}/conf"
+ENV HADOOP_CLASSPATH="${HBASE_HOME}/lib/*:${HBASE_HOME}/conf/*:${TEZ_CONF_DIR}:${TEZ_JARS}/*:${TEZ_JARS}/lib/*"
+
 
 RUN git clone https://github.com/edincubator/stack-examples ~/work/examples
 
