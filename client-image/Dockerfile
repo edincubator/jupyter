@@ -139,6 +139,12 @@ ADD configs/pig/log4j.properties /opt/pig/conf/log4j.properties
 ADD configs/pig/pig-env.sh /opt/pig/conf/pig-env.sh
 ADD configs/pig/pig.properties /opt/pig/conf/pig.properties
 
+# Tez
+
+RUN mkdir -p /opt/tez/conf
+ADD configs/tez/tez-env.sh /opt/tez/conf/tez-env.sh
+ADD configs/tez/tez-site.xml /opt/tez/conf/tez-site.xml 
+
 # Oozie
 
 ADD oozie-client-4.3.1-client.tar.gz /tmp
