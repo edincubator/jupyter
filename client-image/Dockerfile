@@ -141,7 +141,7 @@ ADD configs/pig/pig.properties /opt/pig/conf/pig.properties
 
 # Tez
 
-RUN wget -O /tmp/apache-tez-0.8.4-bin.tar.gz http://apache.uvigo.es/tez/0.8.5/apache-tez-0.8.4-bin.tar.gz
+RUN wget -O /tmp/apache-tez-0.8.4-bin.tar.gz http://apache.uvigo.es/tez/0.8.4/apache-tez-0.8.4-bin.tar.gz
 RUN tar -xf /tmp/apache-tez-0.8.4-bin.tar.gz
 RUN mv apache-tez-0.8.4-bin /opt/
 RUN ln -s /opt/apache-tez-0.8.4-bin /opt/tez
