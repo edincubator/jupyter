@@ -4,3 +4,4 @@ HADOOP_HOME=${HADOOP_HOME:-/opt/hadoop}
 
 if [ -d "/usr/lib/tez" ]; then
   PIG_OPTS="$PIG_OPTS -Dmapreduce.framework.name=yarn"
+fi
