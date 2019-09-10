@@ -135,9 +135,9 @@ RUN wget -O /tmp/pig-0.16.0.tar.gz http://apache.rediris.es/pig/pig-0.16.0/pig-0
 RUN tar -xf /tmp/pig-0.16.0.tar.gz
 RUN mv pig-0.16.0 /opt/
 RUN ln -s /opt/pig-0.16.0 /opt/pig
-ADD configs/pig/log4j.properties /opt/pig/log4j.properties
-ADD configs/pig/pig-env.sh /opt/pig/pig-env.sh
-ADD configs/pig/pig.properties /opt/pig/pig.properties
+ADD configs/pig/log4j.properties /opt/pig/conf/log4j.properties
+ADD configs/pig/pig-env.sh /opt/pig/conf/pig-env.sh
+ADD configs/pig/pig.properties /opt/pig/conf/pig.properties
 
 # Oozie
 
