@@ -171,6 +171,8 @@ ENV HBASE_HOME="/opt/hbase"
 ENV HADOOP_CLASSPATH="${HBASE_HOME}/lib/*:${HBASE_HOME}/conf/*"
 ENV HBASE_CONF_DIR="${HBASE_HOME}/conf"
 ENV KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_client_jaas.conf"
+ENV TEZ_HOME="/opt/tez"
+ENV PIG_CLASSPATH="${HADOOP_HOME}/conf:${TEZ_HOME}/conf"
 
 RUN git clone https://github.com/edincubator/stack-examples ~/work/examples
 
