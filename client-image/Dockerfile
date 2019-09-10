@@ -141,10 +141,10 @@ ADD configs/pig/pig.properties /opt/pig/conf/pig.properties
 
 # Tez
 
-RUN wget -O /tmp/apache-tez-0.9.1-bin.tar.gz http://apache.uvigo.es/tez/0.9.1/apache-tez-0.9.1-bin.tar.gz
-RUN tar -xf /tmp/apache-tez-0.9.1-bin.tar.gz
-RUN mv apache-tez-0.9.1-bin /opt/
-RUN ln -s /opt/apache-tez-0.9.1-bin /opt/tez
+RUN wget -O /tmp/apache-tez-0.8.5-bin.tar.gz http://apache.uvigo.es/tez/0.8.5/apache-tez-0.8.5-bin.tar.gz
+RUN tar -xf /tmp/apache-tez-0.8.5-bin.tar.gz
+RUN mv apache-tez-0.8.5-bin /opt/
+RUN ln -s /opt/apache-tez-0.8.5-bin /opt/tez
 RUN mkdir -p /opt/tez/conf
 ADD configs/tez/tez-env.sh /opt/tez/conf/tez-env.sh
 ADD configs/tez/tez-site.xml /opt/tez/conf/tez-site.xml 
