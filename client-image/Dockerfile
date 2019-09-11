@@ -131,6 +131,7 @@ ADD configs/kafka/kafka_jaas.conf /opt/kafka/config/kafka_jaas.conf
 
 # Pig
 
+RUN pwd
 RUN wget -O /tmp/pig-client.tar.gz https://edi-files-edi.apps.openshift.deustotech.eu/static/notebook/pig-client.tar.gz
 RUN tar -xf /tmp/pig-client.tar.gz
 RUN mv pig-client /opt/pig-client
@@ -174,6 +175,7 @@ ENV KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kafka_client
 ENV TEZ_JARS="/opt/tez"
 ENV TEZ_CONF_DIR="/opt/tez/conf"
 ENV PIG_CLASSPATH="${HADOOP_HOME}/conf:${TEZ_HOME}/conf"
+ENV PIG_HOME="/opt/pig"
 ENV HADOOP_CLASSPATH="${HBASE_HOME}/lib/*:${HBASE_HOME}/conf/*:${TEZ_CONF_DIR}:${TEZ_JARS}/*:${TEZ_JARS}/lib/*"
 
 
