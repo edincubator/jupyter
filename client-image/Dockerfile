@@ -131,23 +131,20 @@ ADD configs/kafka/kafka_jaas.conf /opt/kafka/config/kafka_jaas.conf
 
 # Pig
 
-RUN wget -O /tmp/pig-0.16.0.tar.gz http://apache.rediris.es/pig/pig-0.16.0/pig-0.16.0.tar.gz
-RUN tar -xf /tmp/pig-0.16.0.tar.gz
-RUN mv pig-0.16.0 /opt/
-RUN ln -s /opt/pig-0.16.0 /opt/pig
+RUN wget -O /tmp/pig-client.tar.gz https://edi-files-edi.apps.openshift.deustotech.eu/static/notebook/pig-client.tar.gz
+RUN tar -xf /tmp/pig-client.tar.gz
+RUN mv pig-client /opt/pig-client
+RUN ln -s /opt/pig-client /opt/pig
 ADD configs/pig/log4j.properties /opt/pig/conf/log4j.properties
 ADD configs/pig/pig-env.sh /opt/pig/conf/pig-env.sh
 ADD configs/pig/pig.properties /opt/pig/conf/pig.properties
 
 # Tez
 
-RUN wget -O /tmp/apache-tez-0.7.1-bin.tar.gz http://apache.uvigo.es/tez/0.7.1/apache-tez-0.7.1-bin.tar.gz
-RUN tar -xf /tmp/apache-tez-0.7.1-bin.tar.gz
-RUN mv apache-tez-0.7.1-bin /opt/
-RUN ln -s /opt/apache-tez-0.7.1-bin /opt/tez
-RUN mkdir -p /opt/tez/conf
+RUN wget -O /tmp/tez-client.tar.gz https://edi-files-edi.apps.openshift.deustotech.eu/static/notebook/tez-client.tar.gz
+RUN ln -s /opt/tez-client /opt/tez
 ADD configs/tez/tez-env.sh /opt/tez/conf/tez-env.sh
-ADD configs/tez/tez-site.xml /opt/tez/conf/tez-site.xml 
+ADD configs/tez/tez-site.xml /opt/tez/conf/tez-site.xml
 
 # Oozie
 
