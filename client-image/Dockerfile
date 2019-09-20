@@ -96,6 +96,10 @@ ADD configs/hadoop/mapred-site.xml /opt/hadoop/etc/hadoop/
 RUN pip install --upgrade hiveqlKernel
 RUN jupyter hiveql install --user
 
+# Bash kernel
+
+RUN pip install calysto_bash
+
 # HBase
 
 RUN wget -O /tmp/hbase-2.0.0-bin.tar.gz http://archive.apache.org/dist/hbase/2.0.0/hbase-2.0.0-bin.tar.gz
