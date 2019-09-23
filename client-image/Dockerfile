@@ -190,3 +190,5 @@ USER root
 RUN rm -rf /tmp/*
 
 USER $NB_USER
+
+ADD configs/.bashrc /home/jovyan/.bashrc
