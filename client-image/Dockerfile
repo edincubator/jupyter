@@ -113,7 +113,7 @@ ADD configs/hbase/log4j.properties /opt/hbase/conf/
 ADD configs/hbase/regionservers /opt/hbase/conf/
 
 ADD configs/hbase/hbase-site.xml /opt/hadoop/etc/hadoop/
-RUN cp -r /opt/hbase/lib/* /opt/hadoop/lib
+RUN cp -r /opt/hbase/lib/hbase-* /opt/hadoop/lib
 
 # Phoenix
 
