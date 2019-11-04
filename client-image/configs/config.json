@@ -1,13 +1,13 @@
 {
     "kernel_python_credentials" : {
       "username": "${USERNAME}",
-      "url": "http://edi-master.novalocal:8999",
+      "url": "http://edincubator-m-3-20191031113524:8999",
       "auth": "Kerberos"
     },
   
     "kernel_scala_credentials" : {
       "username": "${USERNAME}",
-      "url": "http://edi-master.novalocal:8999",
+      "url": "http://edincubator-m-3-20191031113524:8999",
       "auth": "Kerberos"
   },
   "custom_headers": {"X-Requested-By": "${USERNAME}"}
