@@ -82,7 +82,7 @@
     
     <property>
       <name>mapreduce.jobhistory.address</name>
-      <value>edi-master.novalocal:10020</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:10020</value>
     </property>
     
     <property>
@@ -137,7 +137,7 @@
     
     <property>
       <name>mapreduce.jobhistory.webapp.address</name>
-      <value>edi-master.novalocal:19888</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:19888</value>
     </property>
     
     <property>

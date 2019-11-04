@@ -15,7 +15,7 @@
 #SPARK_YARN_DIST_ARCHIVES="" #Comma separated list of archives to be distributed with the job.
 
 
-export SPARK_HISTORY_OPTS='-Dspark.ui.filters=org.apache.hadoop.security.authentication.server.AuthenticationFilter -Dspark.org.apache.hadoop.security.authentication.server.AuthenticationFilter.params="type=kerberos,kerberos.principal=HTTP/edi-master.novalocal@EDINCUBATOR.EU,kerberos.keytab=/etc/security/keytabs/spnego.service.keytab"'
+export SPARK_HISTORY_OPTS='-Dspark.ui.filters=org.apache.hadoop.security.authentication.server.AuthenticationFilter -Dspark.org.apache.hadoop.security.authentication.server.AuthenticationFilter.params="type=kerberos,kerberos.principal=HTTP/edincubator-m-3-20191031113524.c.edi-call2.internal@EDINCUBATOR.EU,kerberos.keytab=/etc/security/keytabs/spnego.service.keytab"'
 
 
 

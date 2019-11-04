@@ -107,12 +107,12 @@
     
     <property>
       <name>yarn.log.server.url</name>
-      <value>http://edi-master.novalocal:19888/jobhistory/logs</value>
+      <value>http://edincubator-m-3-20191031113524.c.edi-call2.internal:19888/jobhistory/logs</value>
     </property>
     
     <property>
       <name>yarn.log.server.web-service.url</name>
-      <value>http://edi-master.novalocal:8188/ws/v1/applicationhistory</value>
+      <value>http://edincubator-m-3-20191031113524.c.edi-call2.internal:8188/ws/v1/applicationhistory</value>
     </property>
     
     <property>
@@ -434,12 +434,12 @@
     
     <property>
       <name>yarn.resourcemanager.address</name>
-      <value>edi-master.novalocal:8050</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8050</value>
     </property>
     
     <property>
       <name>yarn.resourcemanager.admin.address</name>
-      <value>edi-master.novalocal:8141</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8141</value>
     </property>
     
     <property>
@@ -484,7 +484,7 @@
     
     <property>
       <name>yarn.resourcemanager.hostname</name>
-      <value>edi-master.novalocal</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal</value>
     </property>
     
     <property>
@@ -554,12 +554,12 @@
     
     <property>
       <name>yarn.resourcemanager.resource-tracker.address</name>
-      <value>edi-master.novalocal:8025</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8025</value>
     </property>
     
     <property>
       <name>yarn.resourcemanager.scheduler.address</name>
-      <value>edi-master.novalocal:8030</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8030</value>
     </property>
     
     <property>
@@ -594,7 +594,7 @@
     
     <property>
       <name>yarn.resourcemanager.webapp.address</name>
-      <value>edi-master.novalocal:8088</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8088</value>
     </property>
     
     <property>
@@ -609,7 +609,7 @@
     
     <property>
       <name>yarn.resourcemanager.webapp.https.address</name>
-      <value>edi-master.novalocal:8090</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8090</value>
     </property>
     
     <property>
@@ -709,7 +709,7 @@
     
     <property>
       <name>yarn.timeline-service.address</name>
-      <value>edi-master.novalocal:10200</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:10200</value>
     </property>
     
     <property>
@@ -849,7 +849,7 @@
     
     <property>
       <name>yarn.timeline-service.http-authentication.proxyuser.ambari-server-edi_test.hosts</name>
-      <value>edi-master.novalocal</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal</value>
     </property>
     
     <property>
@@ -934,12 +934,12 @@
     
     <property>
       <name>yarn.timeline-service.reader.webapp.address</name>
-      <value>edi-master.novalocal:8198</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8198</value>
     </property>
     
     <property>
       <name>yarn.timeline-service.reader.webapp.https.address</name>
-      <value>edi-master.novalocal:8199</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8199</value>
     </property>
     
     <property>
@@ -979,12 +979,12 @@
     
     <property>
       <name>yarn.timeline-service.webapp.address</name>
-      <value>edi-master.novalocal:8188</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8188</value>
     </property>
     
     <property>
       <name>yarn.timeline-service.webapp.https.address</name>
-      <value>edi-master.novalocal:8190</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8190</value>
     </property>
     
     <property>

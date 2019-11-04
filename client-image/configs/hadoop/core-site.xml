@@ -7,7 +7,7 @@
     
     <property>
       <name>fs.defaultFS</name>
-      <value>hdfs://edi-master.novalocal:8020</value>
+      <value>hdfs://edincubator-m-3-20191031113524.c.edi-call2.internal:8020</value>
       <final>true</final>
     </property>
     
@@ -103,7 +103,7 @@
     
     <property>
       <name>hadoop.proxyuser.ambari-server-edi_test.hosts</name>
-      <value>edi-master.novalocal</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal</value>
     </property>
     
     <property>
@@ -123,7 +123,7 @@
     
     <property>
       <name>hadoop.proxyuser.hive.hosts</name>
-      <value>edi-master.novalocal</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal</value>
     </property>
     
     <property>
@@ -138,7 +138,7 @@
     
     <property>
       <name>hadoop.proxyuser.knox.hosts</name>
-      <value>edi-master.novalocal</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal</value>
     </property>
     
     <property>
@@ -158,7 +158,7 @@
     
     <property>
       <name>hadoop.proxyuser.yarn.hosts</name>
-      <value>edi-master.novalocal</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal</value>
     </property>
     
     <property>

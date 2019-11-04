@@ -209,13 +209,13 @@
     
     <property>
       <name>dfs.namenode.http-address</name>
-      <value>edi-master.novalocal:50070</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:50070</value>
       <final>true</final>
     </property>
     
     <property>
       <name>dfs.namenode.https-address</name>
-      <value>edi-master.novalocal:50470</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:50470</value>
     </property>
     
     <property>
@@ -251,7 +251,7 @@
     
     <property>
       <name>dfs.namenode.rpc-address</name>
-      <value>edi-master.novalocal:8020</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:8020</value>
     </property>
     
     <property>
