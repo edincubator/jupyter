@@ -63,15 +63,15 @@ RUN rm -rf /home/$NB_USER/.local && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
-RUN wget -O /tmp/spark-2.3.1-bin-without-hadoop.tgz https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-without-hadoop.tgz
-RUN tar -xf /tmp/spark-2.3.1-bin-without-hadoop.tgz
-RUN mv spark-2.3.1-bin-without-hadoop /opt/
-RUN ln -s /opt/spark-2.3.1-bin-without-hadoop /opt/spark
+RUN wget -O /tmp/spark-2.3.2-bin-without-hadoop.tgz https://archive.apache.org/dist/spark/spark-2.3.2/spark-2.3.2-bin-without-hadoop.tgz
+RUN tar -xf /tmp/spark-2.3.2-bin-without-hadoop.tgz
+RUN mv spark-2.3.2-bin-without-hadoop /opt/
+RUN ln -s /opt/spark-2.3.2-bin-without-hadoop /opt/spark
 
-RUN wget -O /tmp/hadoop-3.1.0.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-3.1.0/hadoop-3.1.0.tar.gz
-RUN tar -xf /tmp/hadoop-3.1.0.tar.gz
-RUN mv hadoop-3.1.0 /opt/
-RUN ln -s /opt/hadoop-3.1.0 /opt/hadoop
+RUN wget -O /tmp/hadoop-3.1.1.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-3.1.1/hadoop-3.1.1.tar.gz
+RUN tar -xf /tmp/hadoop-3.1.1.tar.gz
+RUN mv hadoop-3.1.1 /opt/
+RUN ln -s /opt/hadoop-3.1.1 /opt/hadoop
 
 ADD configs/spark/spark-defaults.conf /opt/spark/conf/
 ADD configs/spark/spark-env.sh /opt/spark/conf/
@@ -102,10 +102,10 @@ RUN pip install calysto_bash
 
 # HBase
 
-RUN wget -O /tmp/hbase-2.0.0-bin.tar.gz http://archive.apache.org/dist/hbase/2.0.0/hbase-2.0.0-bin.tar.gz
-RUN tar -xf /tmp/hbase-2.0.0-bin.tar.gz
-RUN mv hbase-2.0.0 /opt/
-RUN ln -s /opt/hbase-2.0.0 /opt/hbase
+RUN wget -O /tmp/hbase-2.0.2-bin.tar.gz http://archive.apache.org/dist/hbase/2.0.2/hbase-2.0.2-bin.tar.gz
+RUN tar -xf /tmp/hbase-2.0.2-bin.tar.gz
+RUN mv hbase-2.0.2 /opt/
+RUN ln -s /opt/hbase-2.0.2 /opt/hbase
 
 ADD configs/hbase/hbase-env.sh /opt/hbase/conf/
 ADD configs/hbase/hbase-site.xml /opt/hbase/conf/
@@ -126,10 +126,10 @@ RUN sed -i '1{s/$/2.7/}' /opt/phoenix/bin/sqlline.py
 
 # Kafka
 
-RUN wget -O /tmp/kafka_2.11-1.0.1.tgz https://archive.apache.org/dist/kafka/1.0.1/kafka_2.11-1.0.1.tgz
-RUN tar -xf /tmp/kafka_2.11-1.0.1.tgz
-RUN mv kafka_2.11-1.0.1 /opt/
-RUN ln -s /opt/kafka_2.11-1.0.1 /opt/kafka
+RUN wget -O /tmp/kafka_2.11-2.0.0.tgz https://archive.apache.org/dist/kafka/2.0.0/kafka_2.11-2.0.0.tgz
+RUN tar -xf /tmp/kafka_2.11-2.0.0.tgz
+RUN mv kafka_2.11-2.0.0 /opt/
+RUN ln -s /opt/kafka_2.11-2.0.0 /opt/kafka
 ADD configs/kafka/kafka_client_jaas.conf /opt/kafka/config/kafka_client_jaas.conf
 ADD configs/kafka/kafka_jaas.conf /opt/kafka/config/kafka_jaas.conf
 
