@@ -261,7 +261,7 @@
     
     <property>
       <name>dfs.namenode.secondary.http-address</name>
-      <value>edi-worker-1.novalocal:50090</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:50090</value>
     </property>
     
     <property>

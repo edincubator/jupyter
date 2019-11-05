@@ -639,7 +639,7 @@
     
     <property>
       <name>yarn.resourcemanager.zk-address</name>
-      <value>edi-worker-1.novalocal:2181,edi-worker-2.novalocal:2181,edi-worker-3.novalocal:2181</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal:2181</value>
     </property>
     
     <property>

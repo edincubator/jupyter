@@ -242,7 +242,7 @@
     
     <property>
       <name>hbase.zookeeper.quorum</name>
-      <value>edi-worker-1.novalocal,edi-worker-2.novalocal,edi-worker-3.novalocal</value>
+      <value>edincubator-m-3-20191031113524.c.edi-call2.internal</value>
     </property>
     
     <property>
