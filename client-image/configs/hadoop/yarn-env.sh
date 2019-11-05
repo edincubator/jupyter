@@ -4,7 +4,7 @@ export HADOOP_LOG_DIR=/var/log/hadoop-yarn/yarn
 export HADOOP_SECURE_LOG_DIR=/var/log/hadoop-yarn/yarn
 export HADOOP_PID_DIR=/var/run/hadoop-yarn/yarn
 export HADOOP_SECURE_PID_DIR=/var/run/hadoop-yarn/yarn
-export HADOOP_LIBEXEC_DIR=/usr/hdp/3.0.0.0-1634/hadoop/libexec
+export HADOOP_LIBEXEC_DIR=/usr/hdp/3.1.0.0-78/hadoop/libexec
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 export JAVA_LIBRARY_PATH="${JAVA_LIBRARY_PATH}:/tmp/hadoop_java_io_tmpdir"
 
@@ -57,7 +57,7 @@ export YARN_RESOURCEMANAGER_HEAPSIZE=1024
 # These options will be appended to the options specified as HADOOP_OPTS
 # and therefore may override any similar flags set in HADOOP_OPTS
 
-export YARN_RESOURCEMANAGER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.0.0.0-1634/0/yarn_jaas.conf"
+export YARN_RESOURCEMANAGER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.1.0.0-78/0/yarn_jaas.conf"
 
 
 # Node Manager specific parameters
@@ -81,22 +81,22 @@ export YARN_NODEMANAGER_HEAPSIZE=1024
 export YARN_TIMELINESERVER_HEAPSIZE=8072
 
 
-export YARN_TIMELINESERVER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.0.0.0-1634/0/yarn_ats_jaas.conf"
+export YARN_TIMELINESERVER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.1.0.0-78/0/yarn_ats_jaas.conf"
 
 
 
-export YARN_TIMELINEREADER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.0.0.0-1634/0/yarn_ats_jaas.conf"
+export YARN_TIMELINEREADER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.1.0.0-78/0/yarn_ats_jaas.conf"
 
 
 
-export YARN_REGISTRYDNS_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.0.0.0-1634/0/yarn_registry_dns_jaas.conf"
+export YARN_REGISTRYDNS_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.1.0.0-78/0/yarn_registry_dns_jaas.conf"
 
 
 # Specify the JVM options to be used when starting the NodeManager.
 # These options will be appended to the options specified as HADOOP_OPTS
 # and therefore may override any similar flags set in HADOOP_OPTS
 
-export YARN_NODEMANAGER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.0.0.0-1634/0/yarn_nm_jaas.conf -Dsun.security.krb5.rcache=none"
+export YARN_NODEMANAGER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.1.0.0-78/0/yarn_nm_jaas.conf -Dsun.security.krb5.rcache=none"
 
 
 # so that filenames w/ spaces are handled correctly in loops below

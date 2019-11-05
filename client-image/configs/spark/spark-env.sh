@@ -40,8 +40,8 @@ SPARK_IDENT_STRING=$USER
 # The scheduling priority for daemons. (Default: 0)
 SPARK_NICENESS=0
 
-# export HADOOP_HOME=${HADOOP_HOME:-/usr/hdp/3.0.0.0-1634/hadoop}
-# export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-/usr/hdp/3.0.0.0-1634/hadoop/conf}
+# export HADOOP_HOME=${HADOOP_HOME:-/usr/hdp/3.1.0.0-78/hadoop}
+# export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-/usr/hdp/3.1.0.0-78/hadoop/conf}
 
 # The java implementation to use.
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64

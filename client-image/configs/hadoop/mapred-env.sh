@@ -11,7 +11,7 @@
       export HADOOP_DAEMON_ROOT_LOGGER=${HADOOP_DAEMON_ROOT_LOGGER:-${HADOOP_LOGLEVEL},RFA}
 
       
-      export MAPRED_HISTORYSERVER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.0.0.0-1634/0/mapred_jaas.conf  -Djavax.security.auth.useSubjectCredsOnly=false"
+      export MAPRED_HISTORYSERVER_OPTS="-Djava.security.auth.login.config=/etc/hadoop/3.1.0.0-78/0/mapred_jaas.conf  -Djavax.security.auth.useSubjectCredsOnly=false"
       
 
       #export HADOOP_JHS_LOGGER=INFO,RFA # Hadoop JobSummary logger.

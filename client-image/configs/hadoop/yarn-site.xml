@@ -77,7 +77,7 @@
     
     <property>
       <name>yarn.application.classpath</name>
-      <value>$HADOOP_CONF_DIR,/usr/hdp/3.0.0.0-1634/hadoop/*,/usr/hdp/3.0.0.0-1634/hadoop/lib/*,/usr/hdp/current/hadoop-hdfs-client/*,/usr/hdp/current/hadoop-hdfs-client/lib/*,/usr/hdp/current/hadoop-yarn-client/*,/usr/hdp/current/hadoop-yarn-client/lib/*</value>
+      <value>$HADOOP_CONF_DIR,/usr/hdp/3.1.0.0-78/hadoop/*,/usr/hdp/3.1.0.0-78/hadoop/lib/*,/usr/hdp/current/hadoop-hdfs-client/*,/usr/hdp/current/hadoop-hdfs-client/lib/*,/usr/hdp/current/hadoop-yarn-client/*,/usr/hdp/current/hadoop-yarn-client/lib/*</value>
     </property>
     
     <property>
@@ -794,12 +794,12 @@
     
     <property>
       <name>yarn.timeline-service.hbase.configuration.file</name>
-      <value>file:///usr/hdp/3.0.0.0-1634/hadoop/conf/embedded-yarn-ats-hbase/hbase-site.xml</value>
+      <value>file:///usr/hdp/3.1.0.0-78/hadoop/conf/embedded-yarn-ats-hbase/hbase-site.xml</value>
     </property>
     
     <property>
       <name>yarn.timeline-service.hbase.coprocessor.jar.hdfs.location</name>
-      <value>file:///usr/hdp/3.0.0.0-1634/hadoop-yarn/timelineservice/hadoop-yarn-server-timelineservice-hbase-coprocessor.jar</value>
+      <value>file:///usr/hdp/3.1.0.0-78/hadoop-yarn/timelineservice/hadoop-yarn-server-timelineservice-hbase-coprocessor.jar</value>
     </property>
     
     <property>
@@ -999,7 +999,7 @@
 
     <property>
       <name>hdp.version</name>
-      <value>3.0.0.0-1634</value>
+      <value>3.1.0.0-78</value>
     </property>
     
   </configuration>
