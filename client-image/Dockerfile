@@ -165,6 +165,11 @@ RUN fix-permissions $CONDA_DIR && \
 USER $NB_USER
 WORKDIR /home/$NB_USER/work
 
+# HiveQL
+
+RUN pip install --upgrade hiveqlKernel
+RUN jupyter hiveql install --user
+
 ENV PATH="/opt/hbase/bin/:/opt/spark/bin:/opt/hadoop/bin:/opt/kafka/bin:/opt/pig/bin:/opt/oozie-client/bin:${PATH}"
 ENV HADOOP_HOME="/opt/hadoop"
 ENV HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
