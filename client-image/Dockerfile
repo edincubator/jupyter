@@ -88,6 +88,7 @@ ADD configs/hadoop/resource-types.xml /opt/hadoop/etc/hadoop/
 ADD configs/hadoop/yarn-env.sh /opt/hadoop/etc/hadoop/
 ADD configs/hadoop/yarn-site.xml /opt/hadoop/etc/hadoop/
 ADD configs/hadoop/topology_script.py /opt/hadoop/etc/hadoop/
+RUN chmod a+rx /opt/hadoop/etc/hadoop/topology_script.py
 
 ADD configs/hadoop/mapred-env.sh /opt/hadoop/etc/hadoop/
 ADD configs/hadoop/mapred-site.xml /opt/hadoop/etc/hadoop/
