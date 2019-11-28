@@ -9,7 +9,7 @@ USER root
 
 # Install vim & nano
 RUN apt-get update && \
-    apt-get install -y vim nano maven openjdk-8-jdk python3-dev libsasl2-dev libsasl2-2 libsasl2-modules-gssapi-mit
+    apt-get install -y vim nano maven openjdk-8-jdk python3-dev libsasl2-dev libsasl2-2 libsasl2-modules-gssapi-mit zip
 
 # RSpark config
 ENV R_LIBS_USER $SPARK_HOME/R/lib
